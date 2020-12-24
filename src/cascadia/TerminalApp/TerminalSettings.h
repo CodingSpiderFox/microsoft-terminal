@@ -48,6 +48,7 @@ namespace winrt::TerminalApp::implementation
         // particular value from the array.
         uint32_t GetColorTableEntry(int32_t index) const noexcept;
 
+#pragma warning(push)
         GETSET_SETTING(uint32_t, DefaultForeground, DEFAULT_FOREGROUND_WITH_ALPHA);
         GETSET_SETTING(uint32_t, DefaultBackground, DEFAULT_BACKGROUND_WITH_ALPHA);
         GETSET_SETTING(uint32_t, SelectionBackground, DEFAULT_FOREGROUND);
