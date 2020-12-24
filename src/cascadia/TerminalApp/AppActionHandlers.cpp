@@ -457,7 +457,7 @@ namespace winrt::TerminalApp::implementation
             if (_startupActions.Size() != 0)
             {
                 actionArgs.Handled(true);
-                _ProcessStartupActions(actions, false);
+                ProcessStartupActions(actions, false);
             }
         }
     }
