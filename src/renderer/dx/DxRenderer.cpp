@@ -2064,13 +2064,12 @@ float DxEngine::GetScaling() const noexcept
 // Routine Description:
 // - Gets the area that we currently believe is dirty within the character cell grid
 // Arguments:
-// - area - Rectangle describing dirty area in characters.
+// - <none>
 // Return Value:
-// - S_OK
-[[nodiscard]] HRESULT DxEngine::GetDirtyArea(gsl::span<const til::rectangle>& area) noexcept
+// - Rectangle describing dirty area in characters.
+[[nodiscard]] std::vector<til::rectangle> DxEngine::GetDirtyArea()
 {
-    area = _invalidMap.runs();
-    return S_OK;
+    return _invalidMap.runs();
 }
 
 // Routine Description:

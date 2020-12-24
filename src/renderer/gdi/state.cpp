@@ -31,7 +31,6 @@ GdiEngine::GdiEngine() :
     _lastBg(INVALID_COLOR),
     _lastFontItalic(false),
     _fPaintStarted(false),
-    _invalidCharacters{},
     _hfont(nullptr),
     _hfontItalic(nullptr),
     _pool{}, // It's important the pool is first so it can be given to the others on construction.

@@ -12,22 +12,18 @@ using namespace Microsoft::Console::Render;
 // Routine Description:
 // - Gets the size in characters of the current dirty portion of the frame.
 // Arguments:
-// - area - The character dimensions of the current dirty area of the frame.
-//      This is an Inclusive rect.
+// - <none>
 // Return Value:
-// - S_OK or math failure
-[[nodiscard]] HRESULT GdiEngine::GetDirtyArea(gsl::span<const til::rectangle>& area) noexcept
+// - The character dimensions of the current dirty area of the frame.
+//      This is an Inclusive rect.
+std::vector<til::rectangle> GdiEngine::GetDirtyArea()
 {
     RECT rc = _psInvalidData.rcPaint;
 
     SMALL_RECT sr = { 0 };
-    RETURN_IF_FAILED(_ScaleByFont(&rc, &sr));
+    LOG_IF_FAILED(_ScaleByFont(&rc, &sr));
 
-    _invalidCharacters = sr;
-
-    area = { &_invalidCharacters, 1 };
-
-    return S_OK;
+    return { sr };
 }
 
 // Routine Description:

@@ -286,7 +286,7 @@ void CONSOLE_INFORMATION::SetTitle(const std::wstring_view newTitle)
 // - <none>
 void CONSOLE_INFORMATION::SetTitlePrefix(const std::wstring& newTitlePrefix)
 {
-    _TitleAndPrefix = newTitlePrefix + _Title;
+    _TitlePrefix = newTitlePrefix;
 
     auto* const pRender = ServiceLocator::LocateGlobals().pRender;
     if (pRender)
@@ -337,9 +337,9 @@ const std::wstring& CONSOLE_INFORMATION::GetTitle() const noexcept
 // - <none>
 // Return Value:
 // - a new wstring containing the combined prefix and title.
-const std::wstring& CONSOLE_INFORMATION::GetTitleAndPrefix() const
+const std::wstring CONSOLE_INFORMATION::GetTitleAndPrefix() const
 {
-    return _TitleAndPrefix;
+    return _TitlePrefix + _Title;
 }
 
 // Method Description:
